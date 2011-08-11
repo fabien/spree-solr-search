@@ -21,10 +21,8 @@ module Spree::Search
       full_query += " AND store_ids:(#{current_store_id})" if current_store_id
 
       result = Product.find_by_solr(full_query, search_options)
-
-      count = result.records.size
-      products = result.records
-
+      products = Kaminari.paginate_array(result.records).page(page).per(per_page)
+      
       @properties[:products] = products
       @properties[:suggest] = nil
       begin
