@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 module Spree::Search
   class Solr < defined?(Spree::Search::MultiDomain) ? Spree::Search::MultiDomain :  Spree::Search::Base
     protected
