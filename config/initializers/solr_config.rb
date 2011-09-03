@@ -11,3 +11,6 @@ unless defined?(PRODUCT_SOLR_FACETS)
   PRODUCT_SOLR_FACETS = [:price_range, :taxon_names,
                         :brand_property, :color_option, :size_option]
 end
+unless defined?(PRODUCT_SOLR_INCLUDE)
+  PRODUCT_SOLR_INCLUDE = []
+end
