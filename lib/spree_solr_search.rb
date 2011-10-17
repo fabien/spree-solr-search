@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'spree_solr_search_hooks'
 
 module SpreeSolrSearch
   class Engine < Rails::Engine
