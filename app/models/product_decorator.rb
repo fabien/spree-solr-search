@@ -1,5 +1,5 @@
 Product.class_eval do
-  acts_as_solr :fields => PRODUCT_SOLR_FIELDS, :facets => PRODUCT_SOLR_FACETS, :include => PRODUCT_SOLR_INCLUDE rescue nil
+  acts_as_solr :fields => PRODUCT_SOLR_FIELDS, :facets => PRODUCT_SOLR_FACETS, :include => PRODUCT_SOLR_INCLUDE, :if => :solr_index? rescue nil
 
   def taxon_ids
     taxons.map(&:id)
@@ -29,6 +29,10 @@ Product.class_eval do
   end
 
   private
+  
+  def solr_index?
+    true
+  end
   
   def store_ids
     if self.respond_to? :stores
