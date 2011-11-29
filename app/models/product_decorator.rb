@@ -1,6 +1,6 @@
 Product.class_eval do
   acts_as_solr :fields => PRODUCT_SOLR_FIELDS, :facets => PRODUCT_SOLR_FACETS, :include => PRODUCT_SOLR_INCLUDE, 
-    :if => :solr_index?, :offline => :solr_offline_indexing? rescue nil
+    :if => :solr_indexing?, :offline => :solr_offline_indexing? rescue nil
 
   def taxon_ids
     taxons.map(&:id)
@@ -31,7 +31,7 @@ Product.class_eval do
 
   private
   
-  def solr_index?
+  def solr_indexing?
     true
   end
   
